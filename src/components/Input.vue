@@ -1,15 +1,28 @@
 <template>
   <div class="inputBox">
-    <input type="text" placeholder="Type what you have to do" />
+    <input
+      type="text"
+      placeholder="Type what you have to do"
+      v-model="todoText"
+    />
 
-    <span class="addContainer">
+    <span class="addContainer" @click="addClick">
       <i class="addBtn fa fa-plus" aria-hidden="true"></i>
     </span>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return { todoText: "" };
+  },
+  methods: {
+    addClick() {
+      console.log("todoText : ", this.todoText);
+    },
+  },
+};
 </script>
 
 <style scoped>
