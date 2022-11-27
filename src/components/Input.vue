@@ -4,6 +4,7 @@
       type="text"
       placeholder="Type what you have to do"
       v-model="todoText"
+      @keyup.enter="addClick"
     />
 
     <span class="addContainer" @click="addClick">
@@ -19,7 +20,14 @@ export default {
   },
   methods: {
     addClick() {
-      console.log("todoText : ", this.todoText);
+      if (this.todoText !== "") {
+        let value = this.todoText && this.todoText.trim();
+        this.$emit("add", value);
+        this.clearInput();
+      }
+    },
+    clearInput() {
+      this.todoText = "";
     },
   },
 };

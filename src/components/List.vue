@@ -1,7 +1,13 @@
 <template>
-  <div></div>
+  <ul>
+    <li v-for="item in propsData">{{ item }}</li>
+  </ul>
 </template>
 
-<script></script>
+<script>
+export default {
+  props: ["propsData"],
+};
+</script>
 
 <style></style>
